@@ -11,64 +11,59 @@
 class Solution {
     public ListNode sortList(ListNode head) {
         
-                // Base case : if head is null
-        if (head == null || head.next == null) {
+        if(head == null || head.next == null){
             return head;
         }
- 
-        // get the middle of the list
-        ListNode middle = getMiddle(head);
-        ListNode nextofmiddle = middle.next;
- 
-        // set the next of middle node to null
-        middle.next = null;
- 
-        // Apply mergeSort on left list
-        ListNode left = sortList(head);
- 
-        // Apply mergeSort on right list
-        ListNode right = sortList(nextofmiddle);
- 
-        // Merge the left and right lists
-        ListNode sortedlist = sortedMerge(left, right);
-        return sortedlist;
         
+        ListNode mid = getMiddle(head);
+        ListNode nextMiddle = mid.next;
+        
+        mid.next = null;
+        
+        ListNode left = sortList(head);
+        ListNode right = sortList(nextMiddle);
+        
+        ListNode sortedList = merge(left,right);
+        
+        return sortedList;
+     
     }
     
-        ListNode sortedMerge(ListNode a, ListNode b){
-        ListNode result = null;
-        /* Base cases */
-        if (a == null)
-            return b;
-        if (b == null)
-            return a;
- 
-        /* Pick either a or b, and recur */
-        if (a.val <= b.val) {
-            result = a;
-            result.next = sortedMerge(a.next, b);
+    public ListNode merge(ListNode left, ListNode right){
+        
+        ListNode merged = null;
+            
+        if(left == null){
+            return right;
         }
-        else {
-            result = b;
-            result.next = sortedMerge(a, b.next);
+        if(right == null){
+            return left;
         }
-        return result;
+        
+        if(right.val <= left.val){
+            merged = right;
+            merged.next = merge(left, right.next);
+        }
+        
+        if(right.val > left.val){
+            merged = left;
+            merged.next = merge(left.next, right);
+        }
+        
+        return merged;
     }
     
     
-    public ListNode getMiddle(ListNode head){
-        if (head == null)
-            return head;
- 
-        ListNode slow = head, fast = head;
- 
-        while (fast.next != null && fast.next.next != null) {
+    public ListNode getMiddle(ListNode node){
+        ListNode slow = node;
+        ListNode fast = node;
+        
+        while(fast.next != null && fast.next.next != null){
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
-    
-    
-
 }
+    
+    
