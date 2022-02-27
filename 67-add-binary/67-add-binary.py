@@ -25,17 +25,12 @@ class Solution:
                     output = "1" + output 
                 else:
                     output = "0" + output 
-            elif a[i] == "0" and b[i] == "0":
+            else:
                 if remainder == 0:
                     output = "0" + output 
                 else:
                     output = "1" + output 
                     remainder = 0
-            # else:
-            #     if remainder == 0:
-            #         output = "1" + output 
-            #     else:
-            #         output = "0" + output
                     
         if remainder == 1:
             output = "1" + output
