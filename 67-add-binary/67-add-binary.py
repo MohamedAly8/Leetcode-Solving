@@ -31,11 +31,11 @@ class Solution:
                 else:
                     output = "1" + output 
                     remainder = 0
-            else:
-                if remainder == 0:
-                    output = "1" + output 
-                else:
-                    output = "0" + output
+            # else:
+            #     if remainder == 0:
+            #         output = "1" + output 
+            #     else:
+            #         output = "0" + output
                     
         if remainder == 1:
             output = "1" + output
