@@ -9,22 +9,17 @@ class Solution:
         else:
             diff = len(b) - len(a)
             a = ("0"*diff) + a
-            
-        print(a)
-        print(b)
 
         # a = "11"
         # b = "01"
         remainder = 0
         for i in range(len(a)-1,-1,-1):
-            print(i)
             if a[i] == "1" and b[i] == "1":
                 if remainder == 0:
                     output = "0" + output 
                     remainder = 1
                 else:
-                    output = "1" + output 
-                    
+                    output = "1" + output        
             elif a[i] == "1" or b[i] == "1":
                 if remainder == 0:
                     output = "1" + output 
