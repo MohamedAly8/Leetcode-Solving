@@ -16,7 +16,7 @@ class Solution:
         if node is None:
             return True
 
-        if (node.val < mini or node.val > maxi):
+        if (node.val <= mini or node.val >= maxi):
             return False
 
-        return self.isBST(node.left, node.val-1, mini) and self.isBST(node.right, maxi, node.val+1)
+        return self.isBST(node.left, node.val, mini) and self.isBST(node.right, maxi, node.val)
