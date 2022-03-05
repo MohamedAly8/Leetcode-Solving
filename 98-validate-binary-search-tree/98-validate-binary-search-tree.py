@@ -16,5 +16,6 @@ class Solution:
 
         if (node.val <= mini or node.val >= maxi):
             return False
-
-        return self.isBST(node.left, node.val, mini) and self.isBST(node.right, maxi, node.val)
+        l = self.isBST(node.left, node.val, mini)
+        r = self.isBST(node.right, maxi, node.val)
+        return l and r
