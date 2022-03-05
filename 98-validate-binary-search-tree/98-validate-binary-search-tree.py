@@ -6,10 +6,8 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        INT_MAX = 4294967296
-        INT_MIN = -4294967296
-        return self.isBST(root, INT_MAX, INT_MIN)
-    
+        
+        return self.isBST(root, float('inf'), float('-inf'))
     
     def isBST(self, node, maxi, mini):
 
