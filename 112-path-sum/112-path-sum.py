@@ -7,10 +7,11 @@
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         
-        q = deque()
         
         if not root:
             return False
+        
+        q = deque()
         
         q.append((root,0))
         
