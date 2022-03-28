@@ -5,6 +5,6 @@ class Solution:
         for num in nums:
             if num in dic:
                 return True
-            dic[num] = num
+            dic[num] = 1
         return False
         
