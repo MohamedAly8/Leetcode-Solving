@@ -4,26 +4,26 @@ class Solution:
         start = 0
         end = len(s) - 1
         alphanum = 'abcdefghijklmnopqrstuvwxyz0123456789'
-        dic = dict(enumerate(alphanum))
-        s = s.lower()
-        print(dic.values())
-        print(s[start])
-        print(s[start] in dic.values())
+        dic = {}
         
+        for char in alphanum:
+            dic[char] = 1
+        s = s.lower()
+
         
     
         
         
         while start < end:
             
-            if s[start] in dic.values() and s[end] in dic.values():
+            if s[start] in dic.keys() and s[end] in dic.keys():
                 if s[start] != s[end]:
                     return False
                 start += 1
                 end -= 1
-            elif s[start] in dic.values():
+            elif s[start] in dic.keys():
                 end -= 1 
-            elif s[end] in dic.values():
+            elif s[end] in dic.keys():
                 start += 1
             else:
                 start += 1
