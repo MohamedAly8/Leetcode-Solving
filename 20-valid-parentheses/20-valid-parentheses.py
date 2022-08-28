@@ -13,7 +13,6 @@ class Solution:
             elif b in brackets.keys():
                 
                 if len(stack) != 0:
-
                     if brackets[b] != stack.pop():
                         return False
                 else:
