@@ -7,7 +7,7 @@ class Solution:
         for b in s:
             
             
-            if b in brackets.values():
+            if b not in brackets:
                 stack.append(b)
         
             elif b in brackets.keys():
