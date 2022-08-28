@@ -8,14 +8,13 @@ class Solution:
             
             currSum = numbers[begin] + numbers[end]
             
-            if currSum == target:
-                return [begin+1, end+1]
-    
-            elif currSum > target:
+
+            if currSum > target:
                 end -= 1
             elif currSum < target:
                 begin += 1
-  
+            else:
+                return [begin+1, end+1]  
                 
         return -1
         
