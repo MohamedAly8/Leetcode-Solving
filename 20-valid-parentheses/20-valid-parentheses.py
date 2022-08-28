@@ -12,13 +12,8 @@ class Solution:
         
             elif b in brackets.keys():
                 
-                if len(stack) != 0:
-                    if brackets[b] != stack.pop():
-                        return False
-                else:
+                if not stack or brackets[b] != stack.pop():
                     return False
                     
         
-        if len(stack) == 0:
-            return True
-        return False
+        return not stack
