@@ -9,11 +9,10 @@ class Solution:
             
             if b not in brackets:
                 stack.append(b)
-        
-            elif b in brackets.keys():
-                
-                if not stack or brackets[b] != stack.pop():
-                    return False
+                continue
+            
+            if not stack or brackets[b] != stack.pop():
+                return False
                     
         
         return not stack
