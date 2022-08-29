@@ -32,9 +32,7 @@ class Solution:
         
                 
         while l <= h:
-            print("here")
-            print(toFind[midPoint])
-            
+    
             if toFind[midPoint] == target:
                 return True
             
