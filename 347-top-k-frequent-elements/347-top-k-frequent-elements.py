@@ -19,11 +19,11 @@ class Solution:
         # k = 2
         out = []
         for i in range(len(freq)-1,0,-1):
-            
             for num in freq[i]:
                 if k > 0:
                     out.append(num)
-                    k -= 1
-        return out
+                    if len(out) == k:
+                        return out
+
         
             
