@@ -21,6 +21,5 @@ class Solution:
                 noLoss.append(k)
         
         
-        
         return [sorted(noLoss), sorted(oneLoss)]
             
