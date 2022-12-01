@@ -16,7 +16,6 @@ class Solution:
             else:
                 innercount = 1
             
-            
             nums[count] = nums[i]
             count += 1    
         return count
