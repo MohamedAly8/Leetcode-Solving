@@ -17,7 +17,7 @@ class Solution:
             maxCount = max(maxCount, count[s[end]])
 
             # overlimit
-            if (end - start + 1) -  maxCount > k:
+            if (end - start + 1 -  maxCount) > k:
                 count[s[start]] -= 1
                 start += 1 
             
