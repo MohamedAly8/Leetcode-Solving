@@ -2,41 +2,37 @@ class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
         # limited to A-Z
-
-
-        # substring is valid of there are at most K replacements
-            # replace char that occurs less frequent 
-
         # hashmap count -> "AABABBA"
         count = {}
-
         maxCount = 0
-
         start = 0
-
         ret = 0
 
         for end in range(len(s)):
 
-            # +1 to char
-            count[s[end]] = 1 + count.get(s[end], 0)
+            # add each letter to our counts
+            count[s[end]] = count.get(s[end], 0) + 1
 
-            #update the highest count in the current window
+            # see if it is new most frequent
             maxCount = max(maxCount, count[s[end]])
 
-            # no longer valid
-            if(end - start + 1) - maxCount > k:
-
-                # take out the last char from dictionary
+            # overlimit
+            if (end - start + 1) -  maxCount > k:
                 count[s[start]] -= 1
-
-                # take out last char from window
-                start += 1
+                start += 1 
             
             ret = max(ret, end - start + 1)
+            print("Start, end, ret", start,end, ret)
         
         return ret
+            
 
 
+
+
+
+
+
+        
 
 
