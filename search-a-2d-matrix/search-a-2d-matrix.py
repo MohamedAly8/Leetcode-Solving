@@ -16,22 +16,15 @@ class Solution:
 
             m_r = (s+e) // 2
 
-            print(s,m_r, e)
-    
-            if target >= matrix[m_r][0] and target <= matrix[m_r][-1]:
-                # found row 
-                print('reached here')
-                found_row = True
-                break
-
-        
             if target < matrix[m_r][0]:
                 e = m_r - 1
             elif target > matrix[m_r][-1]:
                 s = m_r + 1
+            else:
+                break
 
 
-        if not found_row:
+        if not (s <= e ):
             return False
 
         row = matrix[m_r]
