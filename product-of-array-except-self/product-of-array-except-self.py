@@ -5,21 +5,35 @@ class Solution:
         
         res = [1] * (len(nums))
 
-        # multiply by left most then update leftmult
+        # multiply by all the numbers to the left of the number
         leftmult = 1
 
         for i in range(len(nums)):
             res[i] = leftmult
+            
             leftmult *= nums[i]
+
+            
+        # right mult
         
-        # multiply all to the right
-        print(res)
         rightmult = 1
+
+        
+        res2 = [1] * len((nums))
         for i in range(len(nums)-1,-1,-1):
-            res[i] *= rightmult
+            res2[i] = rightmult
+            print(rightmult)
             rightmult *= nums[i]
 
-        return res 
+        
+
+        print(res2)
+        print(res)
+
+        
+        return [t1 * t2 for t1,t2 in zip(res,res2)]
+        
+
 
         
         
