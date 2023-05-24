@@ -18,24 +18,9 @@ class Solution:
         
         rightmult = 1
 
-        
-        res2 = [1] * len((nums))
         for i in range(len(nums)-1,-1,-1):
-            res2[i] = rightmult
-            print(rightmult)
+            res[i] *= rightmult
             rightmult *= nums[i]
 
-        
 
-        print(res2)
-        print(res)
-
-        
-        return [t1 * t2 for t1,t2 in zip(res,res2)]
-        
-
-
-        
-        
-        
-
+        return res
