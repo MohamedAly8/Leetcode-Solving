@@ -4,15 +4,23 @@ class Solution:
 
         r = [0,0]
         
+        r1 = 0
+        r2 = 0
+
+
         for num in nums:
 
-            temp = num + r[-2]
+            temp = r2
 
-            r.append(max(temp, r[-1]))
+            r2 = max(num+r1, r2)
+            r1 = temp 
 
-        print(r)
+            # r.append(max(temp, r[-1]))
+            print(r1,r2)
 
-        return r[-1]
+        # print(r)
+
+        return r2
 
 
             
