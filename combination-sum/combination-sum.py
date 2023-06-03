@@ -2,23 +2,26 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
 
         # [2,3,6,7]
-
         res = []
+        # DFS on each character adding the current index and i+1 index
+        def dfs(i, cursum, cur):
 
-        def dfs(i,cur,total):
+            print(i,cursum,cur)
 
-            # if target sum reached
-            if total == target:
+            if cursum == target:
                 res.append(cur.copy())
                 return
-
-            if i >= len(candidates) or total > target:
+            
+            if i >= len(candidates) or cursum > target:
                 return 
             
+            # DFS on current index
             cur.append(candidates[i])
-            dfs(i,cur,total+candidates[i])
+            dfs(i,cursum+candidates[i],cur)
+
             cur.pop()
-            dfs(i+1,cur,total)
-        
-        dfs(0,[],0)
+            # DFS on next index
+            dfs(i+1,cursum, cur)
+
+        dfs(0,0,[])
         return res
