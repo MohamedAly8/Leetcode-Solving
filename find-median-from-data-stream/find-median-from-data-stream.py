@@ -10,6 +10,7 @@ class MedianFinder:
         # add number to smaller half
         heappush(self.max_heap_small, -1*num)
 
+        print()
         # add biggest number in smaller half to bigger half
         heappush(self.min_heap_large, -1*heappop(self.max_heap_small))
 
