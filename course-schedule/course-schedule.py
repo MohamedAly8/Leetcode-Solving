@@ -1,52 +1,42 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
 
-        # Map of course: prereq
-        preAdjList = {i: [] for i in range(numCourses)}
 
-        # fill in prerequisites
-        for course,prereq in prerequisites:
-            preAdjList[course].append(prereq)
+        adjList = defaultdict(list)
 
+        for course,pre in prerequisites:
+            adjList[course].append(pre)
 
-        # initialize visited 
-        visited = set()
+        # now adj list has [course] :-> [prerequisits]
+        curr_path = set()
 
-        # DFS, if cycle found return False
-        def dfs(crs):
+        def dfs(course):
+            # DFS on each courses till base case reached (no prereq)
 
-            # found cycle
-            if crs in visited:
+            # cycle detected
+            if course in curr_path:
                 return False
-            
-            # if reached base course
-            if preAdjList[crs] == []:
-                return True
-            
-            # add to visited list
-            visited.add(crs)
 
-            # loop through all prereqs and if any dfs return False, that means there's a cycle
-            for prereq in preAdjList[crs]:
+            if adjList[course] == []:
+                # no prereqs
+                return True
+
+            
+            curr_path.add(course)
+
+            for prereq in adjList[course]:
                 if not dfs(prereq):
                     return False
             
-            # there are no cycles for this course, remove path from visited
-            visited.remove(crs)
+            curr_path.remove(course)
+            # can label is as good to save time
+            adjList[course] = []
 
-            # make AdjList empty to save on computing
-            preAdjList[crs] = []
-
-            return True
+            return True    
         
-        for course in range(numCourses):
-            if not dfs(course):
+        for n in range(numCourses):
+            if not dfs(n):
                 return False
-        
         return True
 
 
-            
-
-
-        return True
