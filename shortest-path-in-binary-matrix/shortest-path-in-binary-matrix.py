@@ -14,10 +14,8 @@ class Solution:
         grid[0][0] = 1
 
         while q:
-            print("hello")
             r,c,dist = q.popleft()
-
-            # reached end
+    
             if (r,c) == (n-1,n-1):
                 return dist
             
