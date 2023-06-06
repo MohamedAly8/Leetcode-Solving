@@ -8,15 +8,13 @@ class Solution:
         
 
         def dfs(r,c,visited,prevHeight):
-
-            if (r not in range(ROWS) or 
-                c not in range(COLS) or 
-                (r,c) in visited     or 
-                prevHeight > heights[r][c]):
-
+            
+            # if not in ranges of r,c or in visited already or height is too small
+            if (r not in range(ROWS) or c not in range(COLS) or 
+                (r,c) in visited or prevHeight > heights[r][c]):
                 return 
             
-            # we gud
+            # cell can be reached
             visited.add((r,c))
 
             # dfs around it
@@ -36,7 +34,7 @@ class Solution:
             dfs(r,0,pac,heights[r][0])
             dfs(r,COLS-1,atl,heights[r][COLS-1])
 
-
+        # visit every cell to check if both in pac&atl
         for r in range(ROWS):
             for c in range(COLS):
                 if (r,c) in pac and (r,c) in atl:
