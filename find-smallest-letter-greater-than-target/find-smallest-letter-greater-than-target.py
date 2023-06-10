@@ -5,8 +5,6 @@ class Solution:
         r = len(letters)
 
         ordtarget = ord(target)
-
-        currcloset = [0, 100]
         
         while l < r:
 
@@ -16,20 +14,13 @@ class Solution:
 
             if ordmid > ordtarget:
                 # look left since all to left are greater than target
-                diff = ordmid - ordtarget
-                if diff < currcloset[1]:
-                    currcloset = [mid, diff]
-
                 r = mid
             
             # all nums on left are less, need to look to right
             else:
                 l = mid + 1
-            
-            
-            
-
-        return letters[currcloset[0]]
+        
+        return letters[r] if r < len(letters) else letters[0]
             
 
 
