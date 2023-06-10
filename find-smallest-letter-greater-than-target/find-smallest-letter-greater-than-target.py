@@ -19,9 +19,6 @@ class Solution:
                 diff = ordmid - ordtarget
                 if diff < currcloset[1]:
                     currcloset = [mid, diff]
-                    print("Heeere forr ", letters[mid], "currclosest index is: ", currcloset[0])
-
-
 
                 r = mid
             
