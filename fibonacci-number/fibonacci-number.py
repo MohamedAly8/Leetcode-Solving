@@ -5,10 +5,8 @@ class Solution:
         n1 = 1
         res = 0
 
-        if n == 0:
-            return 0
-        if n == 1:
-            return 1
+        if n < 2:
+            return n
 
         for i in range(1,n):
             res = n0 + n1
