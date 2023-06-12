@@ -2,11 +2,22 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
 
 
-        r = [0,0]
-        for num in nums:
-            temp = num + r[-2]
-            r.append(max(temp, r[-1]))
-        return r[-1]
+        h1 = 0
+        h2 = 0
+
+        for i in range(len(nums)):
+
+            temp = max(nums[i]+h1, h2)
+            h1 = h2
+            h2 = temp
+
+        return h2
+
+
+            
+
+            
+
 
 
             
