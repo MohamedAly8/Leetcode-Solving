@@ -1,9 +1,6 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
 
-        if len(nums) <= 2:
-            return max(nums)
-
         def helper(nums):
 
             h1, h2 = 0,0
@@ -14,7 +11,7 @@ class Solution:
             return h2
 
         
-        return max(helper(nums[1:]), helper(nums[:-1]))
+        return max(nums[0], helper(nums[1:]), helper(nums[:-1]))
 
 
 
