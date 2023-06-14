@@ -17,9 +17,8 @@ class Solution:
                 r += 1
 
             elif cur < 0:
-                l += 1
-                if not l < r:
-                    r += 1
+                l = r 
+                r += 1
             
 
         return mp
