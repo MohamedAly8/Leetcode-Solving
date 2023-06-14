@@ -10,13 +10,10 @@ class Solution:
 
 
             cur = prices[r] - prices[l]
-
-            # we in the negatives
             if cur >= 0:
                 mp = max(cur, mp) 
                 r += 1
-
-            elif cur < 0:
+            else:
                 l = r 
                 r += 1
             
