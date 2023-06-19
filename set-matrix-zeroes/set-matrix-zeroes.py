@@ -19,9 +19,6 @@ class Solution:
                 if matrix[i][j] == 0:
                     visitedROWS.add(i)
                     visitedCOLS.add(j)
-    
-        print(visitedROWS)
-        print(visitedCOLS)
 
         for row in visitedROWS:
             for i in range(len(matrix[row])):
