@@ -8,11 +8,9 @@ class Solution:
 
 
         for num in nums:
-            
-            cur = curMax * num
-
-            curMax = max(cur, curMin*num, num)
-            curMin = min(cur, curMin*num, num)
+            tmp = curMax * num
+            curMax = max(curMax * num, curMin*num, num)
+            curMin = min(tmp, curMin*num, num)
             res = max(curMax, res)
         
         return res
