@@ -14,7 +14,7 @@ class Solution:
                 start += 1
             seen.add(s[end])
             res = max(res, end-start+1)
-        
+    
         return res
 
 
