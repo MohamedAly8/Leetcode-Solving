@@ -4,9 +4,15 @@ class Solution:
         res = nums[0]
         curMin, curMax = 1, 1
 
+        # maintain maximuum and minimum as you go
+
+
         for num in nums:
+            
             cur = curMax * num
-            curMax = max(cur, num*curMin, num)
-            curMin = min(cur, num*curMin, num)
-            res = max(res, curMax)
+
+            curMax = max(cur, curMin*num, num)
+            curMin = min(cur, curMin*num, num)
+            res = max(curMax, res)
+        
         return res
