@@ -13,24 +13,13 @@ class Solution:
 
         res = 0
 
-        while r < len(prices):
+        for i in range(1, len(prices)):
+            cur = prices[i]-prices[i-1]
+            if cur > 0:
+                res += cur
 
-            profit = prices[r] - prices[l]
-            # losing money, move on 
-            if prices[r] - prices[l] < 0:
-                l = r
-                r += 1
-            # if increasing one more day makes profit less, sell
-            elif r < len(prices) - 1 and profit > prices[r+1] - prices[l]:
-                res += profit
-                l = r
-                r += 1       
-            else:
-                r += 1
-            if profit > 0 and r == len(prices):
-                res += profit
+        return res 
 
-        return res
 
 
 
