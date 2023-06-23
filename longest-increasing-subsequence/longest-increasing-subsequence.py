@@ -7,6 +7,7 @@ class Solution:
         # LIS len-1 : 1 , or 1 + LIS[3] ONLY IF nums[len-1] < nums[len]
 
         dp = [1] * len(nums)  
+        curMax = 1
     
         for i in range(len(nums)-1, -1, -1):
 
@@ -14,8 +15,8 @@ class Solution:
             while(j < len(nums)):
                 if nums[i] < nums[j]:
                     dp[i] = max(dp[i], 1+dp[j])
-                j += 1                    
-            
-        return max(dp)
+                    curMax = max(dp[i], curMax)
+                j += 1                     
+        return curMax
 
             
