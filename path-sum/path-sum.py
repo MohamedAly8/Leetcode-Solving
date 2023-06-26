@@ -12,20 +12,12 @@ class Solution:
 
             if not node:
                 return
-
-            
+    
             curSum += node.val
 
             if curSum == targetSum and node.left is None and node.right is None:
                 return True
-
             
             return dfs(node.left, curSum) or dfs(node.right, curSum)
-
-            curSum -= node.val
-
-
-
-
-        
+   
         return dfs(root,0)
