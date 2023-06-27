@@ -16,13 +16,12 @@ class Solution:
 
             board[r][c] = MARK
 
-            dirs = [[1,0], [-1,0], [0,1], [0,-1]]
+            dfs(r+1,c)
+            dfs(r-1,c)
+            dfs(r,c+1)
+            dfs(r,c-1)
 
-            for d in dirs:
-                i,j = d
-                dfs(r+i, c+j)
-
-
+            
         for r in range(ROWS):
             for c in range(COLS):
                 if (r in [0,ROWS-1] or c in [0,COLS-1]) and board[r][c] == "O":
