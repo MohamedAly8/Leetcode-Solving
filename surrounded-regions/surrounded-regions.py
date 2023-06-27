@@ -29,17 +29,14 @@ class Solution:
                     dfs(r,c)
 
         
-        # turn all O to X
+        # turn all O to X, turn all D to O
         for r in range(ROWS):
             for c in range(COLS):           
                 if board[r][c] == "O":
                     board[r][c] = "X"
-
-        # turn O to D
-        for r in range(ROWS):
-            for c in range(COLS):
-                if board[r][c] == "D":
+                elif board[r][c] == "D":
                    board[r][c] = "O"
+
 
 
 
