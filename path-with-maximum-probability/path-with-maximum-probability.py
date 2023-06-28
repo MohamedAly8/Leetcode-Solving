@@ -4,16 +4,19 @@ class Solution:
         graph = defaultdict(list)
         queue = deque([start])
 
-
+        #create adjacency list
         for i, (a,b) in enumerate(edges):
 
             graph[a].append([b,i])
             graph[b].append([a,i])
 
         
+        # create probability list
         prob = [0.0] * n
         prob[start] = 1.0
 
+
+        
         while queue:
 
             curr = queue.popleft()
