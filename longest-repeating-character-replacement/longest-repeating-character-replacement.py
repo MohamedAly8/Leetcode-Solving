@@ -1,31 +1,41 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
-        # limited to A-Z
-        # hashmap count -> "AABABBA"
-        count = {}
-        maxCount = 0
-        start = 0
-        ret = 0
 
-        for end in range(len(s)):
+        # IDEA: keep count of all current elements in the window,
 
-            # add each letter to our counts
-            count[s[end]] = count.get(s[end], 0) + 1
 
-            # see if it is new most frequent
-            maxCount = max(maxCount, count[s[end]])
+        #  keep track of max_freq element.
 
-            # overlimit
-            if (end - start + 1 -  maxCount) > k:
-                count[s[start]] -= 1
-                start += 1 
+
+        count = defaultdict(int)
+
+        l  = 0
+        res = 0
+        max_freq = 0
+
+        for r in range(len(s)):
+
+            count[s[r]] += 1
             
-            ret = max(ret, end - start + 1)
-            print("Start, end, ret", start,end, ret)
-        
-        return ret
+            max_freq = max(count[s[r]], max_freq)
+
+
+            # too many 
+            if (r - l + 1) - max_freq > k:
+                count[s[l]] -= 1
+                l += 1
             
+            res = max(r-l+1, res)
+
+        return res
+
+
+
+
+
+
+
 
 
 
