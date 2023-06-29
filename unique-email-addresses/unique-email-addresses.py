@@ -12,7 +12,7 @@ class Solution:
                 if c == ".":
                     continue
                 tmp += c
-            res.add((tmp, domain))
+            res.add(tmp+"@"+domain)
 
         return len(res)
 
