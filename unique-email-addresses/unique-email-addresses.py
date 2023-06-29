@@ -7,12 +7,14 @@ class Solution:
 
             email, domain = email.split("@")
             email = email.split("+")[0]
+                    
+            
             tmp = ""
             for c in email:
                 if c == ".":
                     continue
                 tmp += c
-            res.add(tmp+"@"+domain)
+            res.add((tmp, domain))
 
         return len(res)
 
