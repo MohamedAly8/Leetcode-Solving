@@ -10,17 +10,12 @@ class Solution:
         else:
             m = -1
         b = y2 - (m*x2)
-
-        print(m)
-
         for x,y in coordinates[2:]:
 
             # vertical line
             if m == -1:
                 if x != x1:
-                    print(x, x1)
                     return False
-
             elif y != (x*m+b):
                 print("here")
                 return False
