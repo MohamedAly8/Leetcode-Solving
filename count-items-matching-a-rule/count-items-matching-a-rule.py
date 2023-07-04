@@ -2,20 +2,13 @@ class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
 
 
-        index = 0
         count = 0
-
-
-        if ruleKey == "color":
-            index = 1
-        elif ruleKey == "name":
-            index = 2
-    
+        rule = {"type": 0, "color": 1, "name": 2}    
 
         for i in range(len(items)):
 
-            if items[i][index] == ruleValue:
+            if items[i][rule[ruleKey]] == ruleValue:
                 count += 1
-        
+
         return count
                 
