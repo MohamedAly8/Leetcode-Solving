@@ -15,12 +15,15 @@ class Solution(object):
 
         while r < ROWS:
 
-    
+            
+            
+            allNeg = True
             for c in range(nonNegIndex-1,-1,-1):
                 if grid[r][c] >= 0:
                     nonNegIndex = c + 1
-                    break
-            else:
+                    allNeg = False
+                    break   
+            if allNeg:
                 nonNegIndex = 0
 
             res += COLS - nonNegIndex
