@@ -9,9 +9,7 @@ class Solution:
 
         for r in range(len(nums)):
 
-            
             if nums[r] == 0:
-                print("added 0 at:", r)
                 zero += 1
 
             while zero > 1:
@@ -19,7 +17,6 @@ class Solution:
                     zero -= 1
                 l += 1
             
-            print(l,r, "zeros:", zero)
             res = max(res, r-l)
 
         return res
